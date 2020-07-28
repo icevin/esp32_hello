@@ -4,34 +4,24 @@
 const char* ssid     = SECRET_SSID;
 const char* password = SECRET_PW;
 
-const char* host = "data.sparkfun.com";
-const char* streamId   = "....................";
-const char* privateKey = "....................";
-
 void setup()
 {
     Serial.begin(115200);
     delay(10);
 
-    // We start by connecting to a WiFi network
-
-    Serial.print("Connecting to ");
     Serial.println(ssid);
 
     WiFi.begin(ssid, password);
 
     while (WiFi.status() != WL_CONNECTED) {
-        delay(500);
+        delay(1000);
         Serial.print(".");
     }
 
-    Serial.println("");
-    Serial.println("WiFi connected");
-    Serial.println("IP address: ");
+    Serial.println("\n\n");
+    Serial.println("Connected - local IP: ");
     Serial.println(WiFi.localIP());
 }
-
-int value = 0;
 
 void loop()
 {
